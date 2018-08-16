@@ -55,5 +55,8 @@ gem 'listen'
 
 gem 'wdm', '>=0.1.0'
 
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+
 
 #Gemfile is where all the dependencies are declared
