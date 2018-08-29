@@ -10,12 +10,23 @@
   </head>
 
   <body>
-     <%= render 'shared/navbar'if current_user %>
+    <%= render 'shared/navbar'if current_user %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
     <%= yield %>
-
     <%= render 'shared/footer' %>
+
+    <% if flash.any? %>
+      <script type="text/javascript">
+        <% flash.each do |key, value|%> //key is alert and value is message.
+          <% type = key.to_s.gsub('alert', 'error').gsub('notice','success')%>
+        toastr.<%=type%>('<%=value%>')
+        <% end %>
+      </script>
+
+      <!-- flash[:notice] = "Signed in suceess.." flas[:notice] is key and ""is value -->
+
+    <% end %>
+
+
   </body>
 </html>
